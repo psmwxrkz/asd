@@ -1,0 +1,31 @@
+ORGANIZAÇÃO DA MACRO - ESTOCAGEM RDSWEB
+
+Importação recomendada:
+1. Faça backup do arquivo Excel antes.
+2. No VBA, remova o módulo antigo que continha a macro inteira, para evitar funções duplicadas.
+3. Importe estes 4 módulos .bas:
+   - mod01_Main_RDS.bas
+   - mod02_Atualizar_Celulas.bas
+   - mod03_Regras_Alternancia.bas
+   - mod04_Apoio_Selenium_Texto.bas
+
+Resumo:
+- mod01_Main_RDS:
+  Macro principal BaixarDadosSite. É o módulo que você executa.
+
+- mod02_Atualizar_Celulas:
+  Entra no noteeteg.vercel.app, lê A4:H4 e lê os dropdowns das moegas.
+  Os IDs dos dropdowns ficam dentro da rotina AtualizarCelulas.
+
+- mod03_Regras_Alternancia:
+  Decide qual célula usar conforme terminal, tipo de veículo e modo da moega.
+  É o melhor lugar para mexer em pesos de alternância.
+
+- mod04_Apoio_Selenium_Texto:
+  Funções de apoio: waits, cliques, leitura de campos, normalização de texto etc.
+  Também fica aqui o Public bot As WebDriver.
+
+Observação:
+As funções RegistrarLog, SafeWait, PreventSleep, RestoreSleep, StartKeepAlive, StopKeepAlive,
+KeepAliveTick, MonitorarInterrupcao, MacroRodando e UserFormKeepAlive foram preservadas como chamadas
+externas, porque já existiam/eram usadas na sua estrutura atual.
